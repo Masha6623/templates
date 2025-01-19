@@ -1,7 +1,7 @@
-import { TemplateList } from "../components/TemplateList";
 import { DynamicForm } from "../components/DynamicForm";
 import { RootState } from "../store/store";
 import { useAppSelector } from "../store/hooks";
+import { TemplateList } from "../components/templateList/TemplateList";
 
 export const FormPage = () => {
   const selectedTemplate = useAppSelector(

@@ -4,11 +4,12 @@ import { RootState } from "../store/store";
 import { Alert, Snackbar, Typography } from "@mui/material";
 import { SubmitButton } from "./SubmitButton";
 import { SingleField } from "./SingleField";
-import { RepeatableField } from "./RepeatableField";
-import { postForm } from "../service/formHttpService";
+import { RepeatableField } from "./fields/RepeatableField";
+import { formHttp } from "../service/formHttpService";
 import { useAppSelector } from "../store/hooks";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { generateValidationSchema } from "../assets/validationRules";
+import { AlertSnackbar } from "./AlertSnackBar";
 
 export const DynamicForm = () => {
   const selectedTemplate = useAppSelector(
@@ -33,9 +34,11 @@ export const DynamicForm = () => {
     reset();
   }, [selectedTemplate, reset]);
 
+  const form = formHttp();
+
   const onSubmit = async (data: any) => {
     try {
-      await postForm(data);
+      await form.postForm(data);
       reset();
       setOpenAlert(true);
     } catch (error) {
@@ -80,20 +83,7 @@ export const DynamicForm = () => {
         )}
         <SubmitButton />
       </form>
-
-      <Snackbar
-        open={openAlert}
-        autoHideDuration={4000}
-        onClose={handleCloseAlert}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-      >
-        <Alert onClose={handleCloseAlert} variant="filled" severity="success">
-          Form submitted successfully!
-        </Alert>
-      </Snackbar>
+      <AlertSnackbar open={openAlert} handleClose={handleCloseAlert} />
     </>
   );
 };

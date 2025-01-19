@@ -6,12 +6,12 @@ import { MultiSelectField } from "./fields/MultiselectField";
 import { CheckBox } from "./fields/Checkbox";
 import { RadioField } from "./fields/RadioField";
 import { FieldErrors } from "react-hook-form";
-import { EmailField } from "./fi/EmailField";
-import { NumberField } from "./fi/NumberField";
-import { DateField } from "./fi/DateFIeld";
-import { PasswordField } from "./fi/PasswordField";
-import { TimeField } from "./fi/TimeField";
-import { TextInputField } from "./fi/TextInputField";
+import { EmailField } from "./fields/EmailField";
+import { NumberField } from "./fields/NumberField";
+import { DateField } from "./fields/DateFIeld";
+import { PasswordField } from "./fields/PasswordField";
+import { TimeField } from "./fields/TimeField";
+import { TextInputField } from "./fields/TextInputField";
 
 interface SingleFieldProps {
   field: Field;
@@ -29,6 +29,7 @@ export const SingleField = ({
   errors,
 }: SingleFieldProps) => {
   const error = errors[field.name];
+  console.log("errors", errors);
 
   switch (field.type) {
     case FieldType.Text:

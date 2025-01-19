@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TemplatesState } from "../types/TemplateTypes";
+import { Template, TemplatesState } from "../types/TemplateTypes";
 import templatesData from "../data/templates.json";
 import { SliceNames } from "../config/sliceNames";
 
 const initialState: TemplatesState = {
-  templates: templatesData,
+  templates: templatesData as Template[],
   selectedTemplate: null,
 };
 

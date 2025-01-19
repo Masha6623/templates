@@ -1,5 +1,7 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
-export const API = axios.create({
+type ApiService = AxiosInstance;
+
+export const API: ApiService = axios.create({
   baseURL: "http://localhost:4000",
 });

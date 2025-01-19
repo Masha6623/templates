@@ -1,10 +1,11 @@
 import { TextField } from "@mui/material";
 import { Field } from "../../types/TemplateTypes";
+import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 
 interface TextareaProps {
   field: Field;
   register: any;
-  error: any;
+  error: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
 }
 
 export const Textarea = ({ field, register, error }: TextareaProps) => {

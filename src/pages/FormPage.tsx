@@ -9,9 +9,11 @@ export const FormPage = () => {
   );
 
   return (
-    <div>
-      <TemplateList />
-      {selectedTemplate && <DynamicForm />}
-    </div>
+    <>
+      <div>
+        <TemplateList />
+        {selectedTemplate && <DynamicForm />}
+      </div>
+    </>
   );
 };

@@ -29,7 +29,6 @@ export const SingleField = ({
   errors,
 }: SingleFieldProps) => {
   const error = errors[field.name];
-  console.log("errors", errors);
 
   switch (field.type) {
     case FieldType.Text:
